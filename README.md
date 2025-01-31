@@ -1,3 +1,13 @@
+# Zine Maker 9000
+
+This is an interactive zine maker. It is a work in progress.
+
+Text will be based on [Slate.js](https://www.slatejs.org/examples/richtext)
+
+Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion. 
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
