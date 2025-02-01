@@ -2,9 +2,18 @@
 
 This is an interactive zine maker. It is a work in progress.
 
-Text will be based on [Slate.js](https://www.slatejs.org/examples/richtext)
+In order of implementation:
 
-Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion. 
+- Canvas will be implemented with ????
+- Text will be implemented with [Slate.js](https://www.slatejs.org/examples/richtext)
+- Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion. 
+
+UI resources:
+- https://www.luxeui.com/ui
+- https://deadsimplesites.com/
+
+Layout inspiration: 
+- https://omontagnese.com/
 
 ---
 
