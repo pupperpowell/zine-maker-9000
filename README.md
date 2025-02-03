@@ -7,19 +7,19 @@ In order of implementation:
 - Basic UI structure, look and feel inspired by omontagnese.com
 - "Zine" backend structure and functionality.
 - Text will be implemented with [Slate.js](https://www.slatejs.org/examples/richtext)
-- Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion. 
+- Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion.
 
 UI resources:
-- https://www.luxeui.com/ui
+
 - https://ui.aceternity.com/components/lamp-effect
-- https://ui.shadcn.com/docs/components
 
+Layout inspiration:
 
-Layout inspiration: 
 - https://deadsimplesites.com/
 - https://omontagnese.com/
 
 Coding resources:
+
 - https://www.youtube.com/watch?v=__mSgDEOyv8
 - https://ui.shadcn.com/docs/dark-mode/next
 

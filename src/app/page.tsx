@@ -1,9 +1,10 @@
+import Link from "next/link";
 
-export default function Home() {
+export default function Dashboard() {
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-    <h1>Welcome to ZINE MAKER 9000</h1>
+    <div className="">
+      <Link href="/create">Create a new zine →</Link>
     </div>
   )
 }
