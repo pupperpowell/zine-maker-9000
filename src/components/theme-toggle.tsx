@@ -6,11 +6,11 @@ export function ThemeToggle() {
     const { theme, setTheme } = useTheme()
 
     return (
-        <div
+        <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="cursor-pointer hover:opacity-80 select-none"
         >
             &#9728;
-        </div>
+        </button>
     )
 }

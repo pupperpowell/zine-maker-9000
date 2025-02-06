@@ -32,6 +32,16 @@ button:hover {
   }
 }
 
+button {
+  user-select: none;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
