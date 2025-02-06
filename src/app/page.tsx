@@ -52,14 +52,14 @@ export default function Dashboard() {
     };
     // Save to localStorage and navigate to editor
     localStorage.setItem(`zine-${zineId}`, JSON.stringify(newZine));
-    router.push(`/editor/${zineId}`);
+    router.push(`/editor/${zineId}`); // TODO: fix
   };
 
   return (
     <>
       {/* Display existing zines if any exist */}
       {existingZines.length > 0 && (
-        <ul className="">
+        <ul className="pb-2">
           {existingZines.map((zine) => (
             <li key={zine.id} className="flex items-center justify-between">
               {/* Link to edit each zine */}

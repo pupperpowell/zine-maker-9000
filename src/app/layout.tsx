@@ -44,7 +44,7 @@ export default function RootLayout({
             {/* Top-left cell (15% width, 10% height) */}
             <div className="col-start-1 col-end-2 row-start-1 row-end-2">
               {/* Content for top-left section */}
-              <div className="dark:text-emerald-400 uppercase font-serif text-xl cursor-default">zine maker 9000</div>
+              <div className="dark:text-emerald-400 cursor-default">zine maker 9000</div>
             </div>
 
             {/* Top-right cell (85% width, 10% height) */}
@@ -52,19 +52,21 @@ export default function RootLayout({
               {/* Content for top-right section */}
               <div className="space-x-4">
                 <Link href="/">Create</Link>
-                <DisabledLink >Explore</DisabledLink>
+                <Link href='/explore' >Explore</Link>
                 <DisabledLink>Export</DisabledLink>
-                <DisabledLink>Print</DisabledLink>
               </div>
-              <ThemeToggle />
+              <div className="space-x-4">
+                <DisabledLink>Sign in</DisabledLink>
+                <ThemeToggle />
+              </div>
             </div>
 
             {/* Middle-left cell (15% width, 20% height) */}
             <div className="col-start-1 col-end-2 row-start-2 row-end-3 flex flex-col">
               {/* Content for middle-left section */}
-              <DisabledLink>About</DisabledLink>
+              {/* <DisabledLink>About</DisabledLink>
               <DisabledLink>Sign in</DisabledLink>
-              <DisabledLink>Updates</DisabledLink>
+              <DisabledLink>Updates</DisabledLink> */}
 
             </div>
 
