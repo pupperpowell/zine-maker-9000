@@ -6,12 +6,13 @@ In order of implementation:
 
 - Basic UI structure, look and feel inspired by omontagnese.com
 - "Zine" backend structure and functionality.
-- Text will be implemented with [Slate.js](https://www.slatejs.org/examples/richtext)
+- Text will be implemented with Tiptap: https://tiptap.dev/docs/editor/getting-started/overview
+- Drawing will be implemented with React Sketch Canvas: https://vinoth.info/react-sketch-canvas/
 - Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion.
 
 UI resources:
 
-- https://ui.aceternity.com/components/lamp-effect
+- https://www.toptal.com/designers/htmlarrows/
 
 Layout inspiration:
 
