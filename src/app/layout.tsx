@@ -48,7 +48,7 @@ export default function RootLayout({
             </div>
 
             {/* Top-right cell (85% width, 10% height) */}
-            <div className="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-between">
+            <div className="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-between items-start">
               {/* Content for top-right section */}
               <div className="space-x-4">
                 <Link href="/">Create</Link>
