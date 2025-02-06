@@ -2,7 +2,7 @@ export default function Explore() {
 
     return (
         <div className="">
-            <p>Uhhh... explore page</p>
+            <p>Coming soon</p>
         </div>
     )
 }
