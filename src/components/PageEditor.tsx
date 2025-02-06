@@ -1,10 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-
 type PageEditorProps = {
-    content: any
-    onUpdate: (content: any) => void
+    content: { text: string } // why is it string?
+    onUpdate: (content: { text: string }) => void // why is it string?
 }
 
 export default function PageEditor({ content, onUpdate }: PageEditorProps) {
