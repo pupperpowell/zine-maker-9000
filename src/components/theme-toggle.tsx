@@ -8,7 +8,7 @@ export function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="cursor-pointer hover:opacity-80 select-none"
+            className="cursor-pointer hover:opacity-80 hover:bg-white dark:hover:bg-black select-none"
         >
             &#9728;
         </button>
