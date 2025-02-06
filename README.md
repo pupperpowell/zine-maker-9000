@@ -2,24 +2,28 @@
 
 This is an interactive zine maker. It is a work in progress.
 
-In order of implementation:
+## TODO:
 
-- Basic UI structure, look and feel inspired by omontagnese.com
-- "Zine" backend structure and functionality.
+- [x] Basic UI structure, look and feel inspired by omontagnese.com
+- [ ] Basic canvas editor on edit page
+- [ ] Zine backend structure and functionality.
+- [ ] Connect basic zine editing to frontend
+
+## Rough plan:
+
 - Text will be implemented with Tiptap: https://tiptap.dev/docs/editor/getting-started/overview
 - Drawing will be implemented with React Sketch Canvas: https://vinoth.info/react-sketch-canvas/
-- Animations will be implemented using [Motion](https://motion.dev/), formerly known as Framer Motion.
 
-UI resources:
+## UI resources:
 
 - https://www.toptal.com/designers/htmlarrows/
 
-Layout inspiration:
+## Layout inspiration:
 
 - https://deadsimplesites.com/
 - https://omontagnese.com/
 
-Coding resources:
+## Coding resources:
 
 - https://www.youtube.com/watch?v=__mSgDEOyv8
 - https://ui.shadcn.com/docs/dark-mode/next
