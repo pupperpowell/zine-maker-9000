@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 type Zine = {
     id: string
@@ -26,79 +26,77 @@ type Element = {
 }
 
 export default function EditorPage() {
-    const params = useParams()
+    const router = useRouter()
     const [zine, setZine] = useState<Zine | null>(null)
     const [currentPage, setCurrentPage] = useState(0)
 
     useEffect(() => {
-        const zineData = localStorage.getItem(`zine-${params.zineId}`)
+        const currentZineId = localStorage.getItem('currentZineId')
+        if (!currentZineId) {
+            router.push('/dashboard')
+            return
+        }
+
+        const zineData = localStorage.getItem(`zine-${currentZineId}`)
         if (zineData) {
             setZine(JSON.parse(zineData))
         }
-        // In production, you'd fetch from PocketBase instead:
-        // fetchZineFromPocketBase(params.zineId)
-    }, [params.zineId])
+    }, [router])
 
-    if (!zine) return <div>Loading...</div>
-
+    if (!zine) return null
     return (
-        <div className="min-h-screen bg-background">
-            <div className="container mx-auto p-4">
-                <h1 className="text-2xl font-bold mb-4">{zine.title}</h1>
-
-                <div className="flex gap-4">
-                    {/* Page Navigation */}
-                    <div className="flex gap-2">
+        <div className="min-h-screen p-8">
+            <header className="mb-8">
+                <h1 className="text-2xl mb-4">{zine.title}</h1>
+                <nav className="flex gap-8">
+                    {/* Navigation Controls */}
+                    <div className="flex gap-4">
                         <button
                             onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
-                            className="px-4 py-2 bg-primary text-primary-foreground rounded"
+                            className="px-2"
                         >
-                            Previous Page
+                            Previous
                         </button>
+                        <span className="text-muted-foreground">
+                            Page {currentPage + 1} of {zine.pages.length}
+                        </span>
                         <button
                             onClick={() => setCurrentPage(prev => Math.min(zine.pages.length - 1, prev + 1))}
-                            className="px-4 py-2 bg-primary text-primary-foreground rounded"
+                            className="px-2"
                         >
-                            Next Page
+                            Next
                         </button>
                     </div>
 
-                    {/* Add Element Buttons */}
-                    <div className="flex gap-2">
-                        <button className="px-4 py-2 bg-secondary text-secondary-foreground rounded">
-                            Add Text
-                        </button>
-                        <button className="px-4 py-2 bg-secondary text-secondary-foreground rounded">
-                            Add SVG
-                        </button>
-                        <button className="px-4 py-2 bg-secondary text-secondary-foreground rounded">
-                            Add Image
-                        </button>
+                    {/* Element Controls */}
+                    <div className="flex gap-4">
+                        <button className="px-2">Text →</button>
+                        <button className="px-2">SVG →</button>
+                        <button className="px-2">Image →</button>
                     </div>
-                </div>
+                </nav>
+            </header>
 
-                {/* Editor Canvas */}
-                <div className="mt-4 border border-border rounded-lg min-h-[600px] relative">
-                    {zine.pages[currentPage]?.elements.map((element, index) => (
-                        <div
-                            key={index}
-                            style={{
-                                position: 'absolute',
-                                left: element.x,
-                                top: element.y,
-                                width: element.width,
-                                height: element.height
-                            }}
-                            className="border border-dashed border-muted-foreground"
-                        >
-                            {/* Render different element types */}
-                            {element.type === 'text' && <div>{element.content}</div>}
-                            {element.type === 'svg' && <div dangerouslySetInnerHTML={{ __html: element.content }} />}
-                            {element.type === 'image' && <img src={element.content} alt="" />}
-                        </div>
-                    ))}
-                </div>
-            </div>
+            {/* Editor Canvas */}
+            <main className="border border-border min-h-[600px] relative">
+                {zine.pages[currentPage]?.elements.map((element, index) => (
+                    <div
+                        key={index}
+                        style={{
+                            position: 'absolute',
+                            left: element.x,
+                            top: element.y,
+                            width: element.width,
+                            height: element.height
+                        }}
+                        className="border border-dashed border-muted-foreground"
+                    >
+                        {element.type === 'text' && <div>{element.content}</div>}
+                        {element.type === 'svg' && <div dangerouslySetInnerHTML={{ __html: element.content }} />}
+                        {element.type === 'image' && <img src={element.content} alt="" />}
+                    </div>
+                ))}
+            </main>
         </div>
     )
 }

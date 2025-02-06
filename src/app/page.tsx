@@ -1,6 +1,6 @@
 'use client'
 
-import Link from "next/link";
+// import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -39,21 +39,33 @@ export default function Dashboard() {
     loadExistingZines();
   }, []);
 
+  // Random zine name generator (debugging purposes)
+  const randomZineName = () => {
+    const adjectives = ["Amazing", "Fantastic", "Incredible", "Spectacular", "Wonderful", "Ocular", "Orthodox", "Elder", "Venerable"];
+    const nouns = ["Adventure", "Journey", "Quest", "Odyssey", "Expedition", "Monastery", "Skete"];
+    return `${adjectives[Math.floor(Math.random() * adjectives.length)]} ${nouns[Math.floor(Math.random() * nouns.length)]}`;
+  }
+
   // Function to create a new zine
   const createNewZine = () => {
     // Generate unique ID for new zine
     const zineId = crypto.randomUUID();
     const newZine = {
       id: zineId,
-      title: "Untitled Zine",
+      title: randomZineName(),
       pages: [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
     // Save to localStorage and navigate to editor
     localStorage.setItem(`zine-${zineId}`, JSON.stringify(newZine));
-    router.push(`/editor/${zineId}`); // TODO: fix
+    handleZineSelect(zineId);
   };
+
+  const handleZineSelect = (zineId: string) => {
+    localStorage.setItem('currentZineId', zineId)
+    router.push('/editor')
+  }
 
   return (
     <>
@@ -63,15 +75,16 @@ export default function Dashboard() {
           {existingZines.map((zine) => (
             <li key={zine.id} className="flex items-center justify-between">
               {/* Link to edit each zine */}
-              <Link
-                href={`/editor/${zine.id}`}
-                className="hover:underline"
+              <div
+                key={zine.id}
+                onClick={() => handleZineSelect(zine.id)}
+                className="cursor-pointer"
               >
                 {zine.title}
-              </Link>
+              </div>
               {/* Show last updated date */}
               <span className="text-sm text-gray-500">
-                {new Date(zine.updatedAt).toLocaleDateString()}
+                {new Date(zine.createdAt).toLocaleDateString()}
               </span>
             </li>
           ))}

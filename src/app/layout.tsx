@@ -44,7 +44,7 @@ export default function RootLayout({
             {/* Top-left cell (15% width, 10% height) */}
             <div className="col-start-1 col-end-2 row-start-1 row-end-2">
               {/* Content for top-left section */}
-              <div className="dark:text-emerald-400 cursor-default">zine maker 9000</div>
+              <div className="dark:text-yellow-400 text-gray-600 cursor-default select-none">zine maker 9000</div>
             </div>
 
             {/* Top-right cell (85% width, 10% height) */}
