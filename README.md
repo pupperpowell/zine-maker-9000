@@ -5,7 +5,7 @@ This is an interactive zine maker. It is a work in progress.
 ## TODO:
 
 - [x] Basic UI structure, look and feel inspired by omontagnese.com
-- [ ] Basic canvas editor on edit page
+- [ ] Basic canvas editor on edit page (using TLDRAW!)
 - [ ] Zine backend structure and functionality.
 - [ ] Connect basic zine editing to frontend
 
