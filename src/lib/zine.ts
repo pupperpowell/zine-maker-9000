@@ -1,10 +1,10 @@
 // lib/zine.ts
 
-export type Zine = { // make sure these match schema
+export type Zine = { // TODO: make sure these match schema
     title: string;
     author: string;
     createdAt: Date;
-    pages: string[];
+    pages: string[]; // TODO: no, should be an array of Page type
     pageSize: { width: number; height: number }; // inches?
   };
   

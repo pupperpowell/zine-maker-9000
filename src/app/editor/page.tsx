@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+
 type Zine = {
     id: string
     title: string
@@ -33,7 +34,7 @@ export default function EditorPage() {
     useEffect(() => {
         const currentZineId = localStorage.getItem('currentZineId')
         if (!currentZineId) {
-            router.push('/dashboard')
+            router.push('/')
             return
         }
 
@@ -43,28 +44,33 @@ export default function EditorPage() {
         }
     }, [router])
 
+    function deleteCurrentZine() {
+        const currentZineId = localStorage.getItem('currentZineId')
+        if (currentZineId) {
+            localStorage.removeItem(`zine-${currentZineId}`)
+            localStorage.removeItem('currentZineId')
+            router.push('/')
+        }
+    }
+
     if (!zine) return null
     return (
-        <div className="min-h-screen p-8">
+        <div className="min-h-screen">
             <header className="mb-8">
                 <h1 className="text-2xl mb-4">{zine.title}</h1>
                 <nav className="flex gap-8">
                     {/* Navigation Controls */}
                     <div className="flex gap-4">
-                        <button
-                            onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
-                            className="px-2"
-                        >
-                            Previous
-                        </button>
+
                         <span className="text-muted-foreground">
                             Page {currentPage + 1} of {zine.pages.length}
                         </span>
+
                         <button
-                            onClick={() => setCurrentPage(prev => Math.min(zine.pages.length - 1, prev + 1))}
-                            className="px-2"
+                            onClick={deleteCurrentZine}
+                            className="px-2 text-destructive"
                         >
-                            Next
+                            DELETE ZINE
                         </button>
                     </div>
 
@@ -76,26 +82,11 @@ export default function EditorPage() {
                     </div>
                 </nav>
             </header>
-
-            {/* Editor Canvas */}
-            <main className="border border-border min-h-[600px] relative">
-                {zine.pages[currentPage]?.elements.map((element, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            position: 'absolute',
-                            left: element.x,
-                            top: element.y,
-                            width: element.width,
-                            height: element.height
-                        }}
-                        className="border border-dashed border-muted-foreground"
-                    >
-                        {element.type === 'text' && <div>{element.content}</div>}
-                        {element.type === 'svg' && <div dangerouslySetInnerHTML={{ __html: element.content }} />}
-                        {element.type === 'image' && <img src={element.content} alt="" />}
-                    </div>
-                ))}
+            <main>
+                {/* Zine Editor */}
+                <div className=''>
+                    Tldraw would normally go here.
+                </div>
             </main>
         </div>
     )

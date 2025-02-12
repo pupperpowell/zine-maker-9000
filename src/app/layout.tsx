@@ -51,6 +51,7 @@ export default function RootLayout({
             <div className="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-between items-start">
               {/* Content for top-right section */}
               <div className="space-x-4">
+                <Link href="tldraw-test">Tldraw</Link>
                 <Link href="/">Create</Link>
                 <Link href='/explore' >Explore</Link>
                 <DisabledLink>Export</DisabledLink>
@@ -72,7 +73,7 @@ export default function RootLayout({
 
 
             {/* Bottom-right cell (85% width, 90% height) */}
-            <div className="col-start-2 col-end-3 row-start-2 row-end-[-1]"> {/* Spans both middle and bottom rows */}
+            <div className="col-start-2 col-end-3 row-start-2 row-end-[-1] border-2"> {/* Spans both middle and bottom rows */}
               {/* Content for bottom-right section */}
               {children}
             </div>
