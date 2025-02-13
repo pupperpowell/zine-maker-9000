@@ -9,11 +9,6 @@ This is an interactive zine maker. It is a work in progress.
 - [ ] Zine backend structure and functionality.
 - [ ] Connect basic zine editing to frontend
 
-## Rough plan:
-
-- Text will be implemented with Tiptap: https://tiptap.dev/docs/editor/getting-started/overview
-- Drawing will be implemented with React Sketch Canvas: https://vinoth.info/react-sketch-canvas/
-
 ## UI resources:
 
 - https://www.toptal.com/designers/htmlarrows/

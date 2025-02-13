@@ -73,19 +73,24 @@ export default function Dashboard() {
       {existingZines.length > 0 && (
         <ul className="pb-2">
           {existingZines.map((zine) => (
-            <li key={zine.id} className="flex items-center justify-between">
+            <li key={zine.id} className="flex items-center">
+
               {/* Link to edit each zine */}
               <div
                 key={zine.id}
                 onClick={() => handleZineSelect(zine.id)}
-                className="cursor-pointer"
+                className="cursor-pointer mb-1"
               >
                 {zine.title}
               </div>
+              {/* Dotted underline connecting titles and dates */}
+              <div className="flex-grow border-b-2 border-dotted border-gray-400 h-4"></div>
+
               {/* Show last updated date */}
-              <span className="text-sm text-gray-500">
+              <span className="text-base text-gray-500">
                 {new Date(zine.createdAt).toLocaleDateString()}
               </span>
+
             </li>
           ))}
         </ul>
